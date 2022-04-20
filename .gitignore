@@ -13,3 +13,58 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# svn
+*.svn*
+
+# built application files
+*.apk
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated GUI files
+*/R.java
+
+# generated folder
+bin
+!/unityLibrary/src/main/assets/bin
+gen
+
+# local
+local.properties
+g
+proguard_logs/
+
+# log files
+log*.txt
+
+# archives
+*.gz
+*.tar
+*.zip
+
+# eclipse
+*.metadata
+*.settings
+*.prefs
+
+#idea
+*.idea
+*.iml
+out/
+
+# Gradle files
+.gradle/
+build/
+gradlew.bat
+
+*output.json
+
+smartcropperlib/.externalNativeBuild/
+
+release-notes.txt
