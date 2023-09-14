@@ -10,37 +10,87 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.khyzhun.kravatka.navigation.Routes
+import com.khyzhun.kravatka.pages.splash.SplashScreen
+import com.khyzhun.kravatka.pages.splash.SplashViewModel
 import com.khyzhun.kravatka.ui.theme.KravatkaTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             KravatkaTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
+                RootAppNavigation()
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+fun RootAppNavigation(
+    modifier: Modifier = Modifier,
+    navController: NavHostController = rememberNavController(),
+    startDestination: String = Routes.Splash.route,
+) {
+    NavHost(
+        modifier = modifier,
+        navController = navController,
+        startDestination = startDestination,
+    ) {
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    KravatkaTheme {
-        Greeting("Android")
+        composable(Routes.Splash.route) {
+            val viewModel = hiltViewModel<SplashViewModel>()
+            SplashScreen(
+                viewModel = viewModel,
+                onNavigationNext = {
+                    navController.navigate(route = Routes.Welcome.route) {
+                        popUpTo(0)
+                    }
+                }
+            )
+        }
+        composable(Routes.Welcome.route) {
+            // TBD.
+        }
+        composable(Routes.SignIn.route) {
+            // TBD.
+        }
+        composable(Routes.SignUp.route) {
+            // TBD.
+        }
+        composable(Routes.Main.route) {
+            // TBD.
+        }
+
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

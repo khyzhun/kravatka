@@ -52,19 +52,50 @@ android {
 
 dependencies {
 
+//    implementation(platform(libs.compose.bom))
+
     implementation(libs.core.ktx)
-    implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)
-    implementation(platform(libs.compose.bom))
-    implementation(libs.ui)
-    implementation(libs.ui.graphics)
-    implementation(libs.ui.tooling.preview)
-    implementation(libs.material3)
+
+    implementation(libs.compose.ui)
+    implementation(libs.compose.ui.android)
+    implementation(libs.compose.ui.graphics)
+    implementation(libs.compose.ui.tooling)
+    implementation(libs.compose.ui.tooling.preview)
+    implementation(libs.compose.foundation)
+    implementation(libs.compose.material)
+    implementation(libs.compose.material3)
+    implementation(libs.compose.compiler)
+    implementation(libs.compose.constraint)
+    implementation(libs.compose.paging)
+
+    implementation(libs.lifecycle.runtime)
+    implementation(libs.lifecycle.activity)
+    implementation(libs.lifecycle.viewmodel)
+
+    implementation(libs.androidx.navigation)
+//    implementation(libs.androidx.navigation.runtime.ktx)
+
+    implementation(libs.accompanist.system.ui)
+    implementation(libs.accompanist.pager)
+    implementation(libs.accompanist.pager.indicator)
+
+    implementation(libs.coil)
+
+    implementation(libs.retrofit.core)
+    implementation(libs.retrofit.converter)
+    implementation(libs.retrofit.gson)
+
+    implementation(libs.hilt.android)
+    implementation(libs.hilt.compiler)
+    implementation(libs.hilt.compose)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    androidTestImplementation(platform(libs.compose.bom))
-    androidTestImplementation(libs.ui.test.junit4)
-    debugImplementation(libs.ui.tooling)
-    debugImplementation(libs.ui.test.manifest)
+    //androidTestImplementation(platform(libs.compose.bom))
+
+    androidTestImplementation(libs.compose.ui.test.junit4)
+    debugImplementation(libs.compose.ui.tooling)
+    debugImplementation(libs.compose.ui.test.manifest)
 }
