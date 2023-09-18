@@ -13,9 +13,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import com.khyzhun.kravatka.ui.theme.PurpleGrey40
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SplashScreen(
-//    viewModel: SplashViewModel,
+    viewModel: SplashViewModel,
     onNavigationNext: () -> Unit
 ) {
     Scaffold(
@@ -40,7 +41,7 @@ private fun TopBar() {
                 overflow = TextOverflow.Ellipsis
             )
         },
-        colors = TopAppBarDefaults.topAppBarColors(PurpleGrey40)
+        colors = TopAppBarDefaults.smallTopAppBarColors(PurpleGrey40)
     )
 }
 

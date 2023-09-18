@@ -48,9 +48,9 @@ fun RootAppNavigation(
     ) {
 
         composable(Routes.Splash.route) {
-//            val viewModel = hiltViewModel<SplashViewModel>()
+            val viewModel = hiltViewModel<SplashViewModel>()
             SplashScreen(
-//                viewModel = viewModel,
+                viewModel = viewModel,
                 onNavigationNext = {
                     navController.navigate(route = Routes.Welcome.route) {
                         popUpTo(0)
