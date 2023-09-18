@@ -1,5 +1,5 @@
 [versions]
-agp = "8.2.0-alpha06"
+agp = "8.1.1"
 kotlin = "1.8.10"
 core-ktx = "1.12.0"
 junit = "4.13.2"
@@ -8,12 +8,12 @@ espresso-core = "3.5.1"
 lifecycle-runtime-ktx-version = "2.6.2"
 activity-compose = "1.7.2"
 #compose-bom = "2023.03.00" # don't touch :)
-coil_version = "2.4.0"
-retrofit_version = '2.9.0'
-gson_version = '2.10'
-hilt_version = '2.44'
-androidx_hilt = "1.0.0"
-compose_nav = "2.7.2"
+coil-version = "2.4.0"
+retrofit-version = '2.9.0'
+gson-version = '2.10'
+hilt-version = '2.44.2'
+androidx-hilt = "1.0.0"
+compose-nav = "2.7.2"
 ui-android = "1.5.1"
 navigation-version = "2.7.2"
 navigation-runtime-ktx = "2.7.2"
@@ -67,20 +67,20 @@ accompanist-pager = { group = "com.google.accompanist", name = "accompanist-page
 accompanist-pager-indicator = { group = "com.google.accompanist", name = "accompanist-pager-indicators", version.ref = "pager-indicator-version" }
 
 # Image
-coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil_version" }
+coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil-version" }
 # Retrofit
-retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit_version" }
-retrofit-converter = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit_version" }
-retrofit-gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson_version" }
+retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit-version" }
+retrofit-converter = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit-version" }
+retrofit-gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson-version" }
 # Hilt
-hilt-android = { group  = "com.google.dagger", name = "hilt-android", version.ref = "hilt_version" }
-hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt_version" }
-hilt-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidx_hilt" }
+hilt-android = { group  = "com.google.dagger", name = "hilt-android", version.ref = "hilt-version" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt-version" }
+hilt-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidx-hilt" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-androidHilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt_version" }
+android-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt-version" }
+kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 
 [bundles]
-

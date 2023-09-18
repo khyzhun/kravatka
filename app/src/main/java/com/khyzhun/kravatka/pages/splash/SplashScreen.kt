@@ -15,7 +15,7 @@ import com.khyzhun.kravatka.ui.theme.PurpleGrey40
 
 @Composable
 fun SplashScreen(
-    viewModel: SplashViewModel,
+//    viewModel: SplashViewModel,
     onNavigationNext: () -> Unit
 ) {
     Scaffold(
