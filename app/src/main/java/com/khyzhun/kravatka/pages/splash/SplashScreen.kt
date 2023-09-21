@@ -11,8 +11,10 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.dp
 import com.khyzhun.kravatka.ui.theme.PurpleGrey40
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SplashScreen(
     viewModel: SplashViewModel,
@@ -40,7 +42,7 @@ private fun TopBar() {
                 overflow = TextOverflow.Ellipsis
             )
         },
-        colors = TopAppBarDefaults.topAppBarColors(PurpleGrey40)
+        colors = TopAppBarDefaults.smallTopAppBarColors(PurpleGrey40)
     )
 }
 
@@ -49,9 +51,9 @@ private fun SplashScreenContent(
     modifier: Modifier,
     onNavigationNext: () -> Unit
 ) {
-    Column(modifier = modifier) {
+    Column(modifier = modifier.padding(16.dp)) {
         Text(
-            text = "Splash screen",
+            text = "Go to Welcome Screen",
             modifier = modifier.clickable {
                 onNavigationNext.invoke()
             }
