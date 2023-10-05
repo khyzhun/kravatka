@@ -1,17 +1,11 @@
-package com.khyzhun.kravatka
+package com.khyzhun.kravatka.pages
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -19,6 +13,8 @@ import androidx.navigation.compose.rememberNavController
 import com.khyzhun.kravatka.navigation.Routes
 import com.khyzhun.kravatka.pages.splash.SplashScreen
 import com.khyzhun.kravatka.pages.splash.SplashViewModel
+import com.khyzhun.kravatka.pages.welcome.WelcomeScreen
+import com.khyzhun.kravatka.pages.welcome.WelcomeViewModel
 import com.khyzhun.kravatka.ui.theme.KravatkaTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -59,7 +55,17 @@ fun RootAppNavigation(
             )
         }
         composable(Routes.Welcome.route) {
-            // TBD.
+            val viewModel = hiltViewModel<WelcomeViewModel>()
+            WelcomeScreen(
+                viewModel = viewModel,
+                onNavigateToSignIn = {
+                     navController.navigate(route = Routes.SignIn.route)
+                },
+                onNavigateToSignUp = {
+                     navController.navigate(route = Routes.SignUp.route)
+                },
+            )
+
         }
         composable(Routes.SignIn.route) {
             // TBD.
