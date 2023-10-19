@@ -25,7 +25,6 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -54,7 +53,7 @@ fun RootAppNavigation(
             SplashScreen(
                 viewModel = viewModel,
                 onNavigationNext = {
-                    navController.navigate(route = Routes.SignIn.route) {
+                    navController.navigate(route = Routes.Welcome.route) {
                         popUpTo(0)
                     }
                 }
