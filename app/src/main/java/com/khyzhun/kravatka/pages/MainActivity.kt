@@ -16,6 +16,8 @@ import androidx.navigation.compose.rememberNavController
 import com.khyzhun.kravatka.navigation.Routes
 import com.khyzhun.kravatka.pages.sign_in.SignInScreen
 import com.khyzhun.kravatka.pages.sign_in.SignInViewModel
+import com.khyzhun.kravatka.pages.sing_up.SignUpScreen
+import com.khyzhun.kravatka.pages.sing_up.SignUpViewModel
 import com.khyzhun.kravatka.pages.splash.SplashScreen
 import com.khyzhun.kravatka.pages.splash.SplashViewModel
 import com.khyzhun.kravatka.pages.welcome.WelcomeScreen
@@ -39,7 +41,7 @@ class MainActivity : ComponentActivity() {
 fun RootAppNavigation(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = Routes.Splash.route,
+    startDestination: String = Routes.SignUp.route,
 ) {
     val ctx = LocalContext.current
 
@@ -76,14 +78,21 @@ fun RootAppNavigation(
             SignInScreen(
                 viewModel = viewModel,
                 onBackClick = { navController.popBackStack() },
-                onForgotPasswordClick = {showToast("onForgotPasswordClick",ctx) },
-                onLoginClick = {showToast("onLoginClick",ctx) },
-                onLoginGoogleClick = { showToast("onLoginGoogleClick",ctx) },
-                onRegisterClick = { showToast("onRegisterClick",ctx) },
+                onForgotPasswordClick = { showToast("onForgotPasswordClick", ctx) },
+                onLoginClick = { showToast("onLoginClick", ctx) },
+                onLoginGoogleClick = { showToast("onLoginGoogleClick", ctx) },
+                onRegisterClick = { navController.navigate(route = Routes.SignUp.route) },
             )
         }
         composable(Routes.SignUp.route) {
-            // TBD.
+            val viewModel = hiltViewModel<SignUpViewModel>()
+            SignUpScreen(
+                viewModel = viewModel,
+                onNextClick = { showToast("onNextClick", ctx) },
+                onBackClick = { navController.popBackStack() },
+                onTermsConditionsClick = { showToast("onTermsConditionsClick", ctx) },
+                privacyPolicyOnClick = { showToast("privacyPolicyOnClick", ctx) }
+            )
         }
         composable(Routes.Main.route) {
             // TBD.
