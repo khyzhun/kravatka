@@ -1,8 +1,6 @@
 package com.khyzhun.kravatka.pages
 
-import android.content.Context
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
@@ -23,6 +21,7 @@ import com.khyzhun.kravatka.pages.splash.SplashViewModel
 import com.khyzhun.kravatka.pages.welcome.WelcomeScreen
 import com.khyzhun.kravatka.pages.welcome.WelcomeViewModel
 import com.khyzhun.kravatka.ui.theme.KravatkaTheme
+import com.khyzhun.kravatka.utils.appToastShow
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -41,7 +40,7 @@ class MainActivity : ComponentActivity() {
 fun RootAppNavigation(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = Routes.SignUp.route,
+    startDestination: String = Routes.Splash.route,
 ) {
     val ctx = LocalContext.current
 
@@ -78,9 +77,9 @@ fun RootAppNavigation(
             SignInScreen(
                 viewModel = viewModel,
                 onBackClick = { navController.popBackStack() },
-                onForgotPasswordClick = { showToast("onForgotPasswordClick", ctx) },
-                onLoginClick = { showToast("onLoginClick", ctx) },
-                onLoginGoogleClick = { showToast("onLoginGoogleClick", ctx) },
+                onForgotPasswordClick = { appToastShow("onForgotPasswordClick", ctx) },
+                onLoginClick = { appToastShow("Success", ctx) },
+                onLoginGoogleClick = { appToastShow("onLoginGoogleClick", ctx) },
                 onRegisterClick = { navController.navigate(route = Routes.SignUp.route) },
             )
         }
@@ -88,10 +87,10 @@ fun RootAppNavigation(
             val viewModel = hiltViewModel<SignUpViewModel>()
             SignUpScreen(
                 viewModel = viewModel,
-                onNextClick = { showToast("onNextClick", ctx) },
+                onNextClick = { appToastShow("onNextClick", ctx) },
                 onBackClick = { navController.popBackStack() },
-                onTermsConditionsClick = { showToast("onTermsConditionsClick", ctx) },
-                privacyPolicyOnClick = { showToast("privacyPolicyOnClick", ctx) }
+                onTermsConditionsClick = { appToastShow("onTermsConditionsClick", ctx) },
+                privacyPolicyOnClick = { appToastShow("privacyPolicyOnClick", ctx) }
             )
         }
         composable(Routes.Main.route) {
@@ -99,13 +98,10 @@ fun RootAppNavigation(
         }
 
     }
-
 }
 
 
-private fun showToast(text: String, context: Context) {
-    Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
-}
+
 
 
 
