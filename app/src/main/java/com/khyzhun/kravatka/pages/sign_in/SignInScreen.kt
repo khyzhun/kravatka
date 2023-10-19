@@ -31,6 +31,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
@@ -45,6 +46,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.khyzhun.kravatka.R
 import com.khyzhun.kravatka.ui.theme.PurpleGrey40
+import com.khyzhun.kravatka.utils.appToastShow
 import com.khyzhun.kravatka.widgets.BackIconButton
 import com.khyzhun.kravatka.widgets.ButtonPrimary
 import com.khyzhun.kravatka.widgets.ClickableTextSecondary
@@ -87,6 +89,7 @@ private fun SignInScreenContent(
     Column(
         modifier.padding(10.dp)
     ) {
+        val ctx = LocalContext.current
         var login by remember { mutableStateOf("") }
         var password by remember { mutableStateOf("") }
 
@@ -172,8 +175,13 @@ private fun SignInScreenContent(
                 onClick = onForgotPasswordClick
             )
         }
-
-        ButtonPrimary(text = stringResource(id = R.string.login), onLoginClick)
+        ButtonPrimary(text = stringResource(id = R.string.login)) {
+            if(viewModel.loginRequest(login, password)) {
+                onLoginClick()
+            } else {
+                appToastShow(ctx.getString(R.string.login_or_password), ctx)
+            }
+        }
 
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -197,10 +205,7 @@ private fun SignInScreenContent(
                 modifier = Modifier.weight(1f)
             )
         }
-        ButtonPrimary(
-            text = stringResource(id = R.string.login_with_google),
-            onLoginGoogleClick
-        )
+        ButtonPrimary(stringResource(id = R.string.login_with_google), onLoginGoogleClick)
 
         Column(
             modifier = Modifier
