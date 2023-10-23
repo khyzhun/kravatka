@@ -19,17 +19,13 @@ sealed class Routes(val route: String) {
     object SignUp : Routes("sign_up")
 
     /**
-     * Main scree Nested graph
+     * Main Screens: first page
      */
-
-    object Feed : Routes("feed")
-    object Favourites : Routes("favourites")
-    object Cart : Routes("cart")
-    object Profile : Routes("profile")
-
-    /**
-     * Profile graph
-     */
+    object Main : Routes ("main")
+    object Feed : Routes("main/feed")
+    object Favourites : Routes("main/favourites")
+    object Cart : Routes("main/cart")
+    object Profile : Routes("main/profile")
 
 
 }
