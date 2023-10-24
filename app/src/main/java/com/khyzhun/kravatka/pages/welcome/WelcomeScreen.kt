@@ -1,5 +1,6 @@
 package com.khyzhun.kravatka.pages.welcome
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -69,9 +70,11 @@ private fun WelcomeScreenContent(
                 onNavigateToSignUp.invoke()
             }
         )
+
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 @Preview(showBackground = true)
 private fun WelcomeScreenContentPreview() {
@@ -80,11 +83,9 @@ private fun WelcomeScreenContentPreview() {
         onNavigateToSignIn = { /*TODO*/ },
         onNavigateToSignUp = { /*TODO*/ }
     )
+
+
 }
-
-
-
-
 
 
 
