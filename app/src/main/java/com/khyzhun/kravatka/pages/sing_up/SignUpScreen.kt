@@ -104,9 +104,14 @@ private fun SignUnScreenContent(
         )
         OutlinedTextField(
             value = login,
-            onValueChange = { login = it.trim() },
+            onValueChange = {
+                login = it.trim()
+            },
             label = {
-                Text(text = stringResource(R.string.email), fontWeight = FontWeight.Bold)
+                Text(
+                    text = stringResource(R.string.email),
+                    fontWeight = FontWeight.Bold
+                )
             },
             leadingIcon = {
                 Icon(
@@ -130,9 +135,14 @@ private fun SignUnScreenContent(
 
         OutlinedTextField(
             value = fullName,
-            onValueChange = { fullName = it.trim() },
+            onValueChange = {
+                fullName = it.trim()
+            },
             label = {
-                Text(text = stringResource(R.string.person), fontWeight = FontWeight.Bold)
+                Text(
+                    text = stringResource(R.string.person),
+                    fontWeight = FontWeight.Bold
+                )
             },
             leadingIcon = {
                 Icon(
@@ -155,9 +165,14 @@ private fun SignUnScreenContent(
         )
         OutlinedTextField(
             value = phoneNumber,
-            onValueChange = { phoneNumber = it.trim() },
+            onValueChange = {
+                phoneNumber = it.trim()
+            },
             label = {
-                Text(text = stringResource(R.string.phone_number), fontWeight = FontWeight.Bold)
+                Text(
+                    text = stringResource(R.string.phone_number),
+                    fontWeight = FontWeight.Bold
+                )
             },
             leadingIcon = {
                 Icon(
@@ -186,7 +201,10 @@ private fun SignUnScreenContent(
                 .fillMaxHeight()
         )
         {
-            ButtonPrimary(text = stringResource(R.string.continue_text), onClick = onNextClick)
+            ButtonPrimary(
+                text = stringResource(R.string.continue_text),
+                onClick = onNextClick
+            )
         }
     }
 }
