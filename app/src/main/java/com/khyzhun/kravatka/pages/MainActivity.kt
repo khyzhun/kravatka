@@ -34,15 +34,14 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-}
 
-@Composable
-fun RootAppNavigation(
-    modifier: Modifier = Modifier,
-    navController: NavHostController = rememberNavController(),
-    startDestination: String = Routes.Splash.route,
-) {
-    val ctx = LocalContext.current
+    @Composable
+    fun RootAppNavigation(
+        modifier: Modifier = Modifier,
+        navController: NavHostController = rememberNavController(),
+        startDestination: String = Routes.Splash.route,
+    ) {
+        val ctx = LocalContext.current
 
     NavHost(
         modifier = modifier,
@@ -81,10 +80,10 @@ fun RootAppNavigation(
                 onLoginClick = { appToastShow("Success", ctx) },
                 onLoginGoogleClick = { appToastShow("onLoginGoogleClick", ctx) },
                 onRegisterClick = { navController.navigate(route = Routes.SignUp.route) },
-            )
-        }
-        composable(Routes.SignUp.route) {
-            val viewModel = hiltViewModel<SignUpViewModel>()
+                )
+            }
+            composable(Routes.SignUp.route) {
+                val viewModel = hiltViewModel<SignUpViewModel>()
             SignUpScreen(
                 viewModel = viewModel,
                 onNextClick = { appToastShow("onNextClick", ctx) },
@@ -92,16 +91,17 @@ fun RootAppNavigation(
                 onTermsConditionsClick = { appToastShow("onTermsConditionsClick", ctx) },
                 privacyPolicyOnClick = { appToastShow("privacyPolicyOnClick", ctx) }
             )
-        }
-        composable(Routes.Main.route) {
-            // TBD.
-        }
+            }
+            composable(Routes.Main.route) {
+                // TBD.
+            }
 
     }
 }
 
 
 
+}
 
 
 
