@@ -45,7 +45,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.khyzhun.kravatka.R
-import com.khyzhun.kravatka.ui.theme.PurpleGrey40
+import com.khyzhun.kravatka.ui.theme.Gray100
 import com.khyzhun.kravatka.utils.appToastShow
 import com.khyzhun.kravatka.widgets.BackIconButton
 import com.khyzhun.kravatka.widgets.ButtonPrimary
@@ -245,6 +245,6 @@ private fun TopBar() {
             Text(
                 text = "SignIn", maxLines = 1, overflow = TextOverflow.Ellipsis
             )
-        }, colors = TopAppBarDefaults.smallTopAppBarColors(PurpleGrey40)
+        }, colors = TopAppBarDefaults.smallTopAppBarColors(Gray100)
     )
 }

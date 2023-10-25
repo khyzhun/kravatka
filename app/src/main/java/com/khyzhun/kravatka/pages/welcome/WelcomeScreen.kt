@@ -13,7 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
-import com.khyzhun.kravatka.ui.theme.PurpleGrey40
+import com.khyzhun.kravatka.ui.theme.Gray100
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -47,7 +47,7 @@ private fun TopBar() {
                 overflow = TextOverflow.Ellipsis
             )
         },
-        colors = TopAppBarDefaults.smallTopAppBarColors(PurpleGrey40)
+        colors = TopAppBarDefaults.smallTopAppBarColors(Gray100)
     )
 }
 
