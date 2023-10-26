@@ -21,4 +21,6 @@
     <string name="login_or_password">Login or Password incorrect</string>
     <string name="notifications">Notifications</string>
     <string name="new_notifications">New notifications</string>
+    <string name="next">Next</string>
+    <string name="sign_in">SignIn</string>
 </resources>

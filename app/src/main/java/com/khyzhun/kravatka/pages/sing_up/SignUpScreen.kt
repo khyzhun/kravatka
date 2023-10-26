@@ -21,8 +21,6 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -38,15 +36,13 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.khyzhun.kravatka.R
-import com.khyzhun.kravatka.ui.theme.Gray100
 import com.khyzhun.kravatka.widgets.BackIconButton
 import com.khyzhun.kravatka.widgets.ButtonPrimary
-import java.util.Locale
+import java.util.*
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -57,8 +53,8 @@ fun SignUpScreen(
     onTermsConditionsClick: () -> Unit,
     privacyPolicyOnClick: () -> Unit
 ) {
-    Scaffold(topBar = { TopBar() }) {
-        SignUnScreenContent(
+    Scaffold {
+        SignUpScreenContent(
             viewModel = viewModel,
             onBackClick = onBackClick,
             onNextClick = onNextClick,
@@ -71,7 +67,7 @@ fun SignUpScreen(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun SignUnScreenContent(
+private fun SignUpScreenContent(
     viewModel: SignUpViewModel,
     onBackClick: () -> Unit,
     onNextClick: () -> Unit,
@@ -94,7 +90,7 @@ private fun SignUnScreenContent(
                 contentDescription = null,
                 modifier = modifier
                     .fillMaxWidth()
-                    .height(150.dp)
+                    .height(300.dp)
             )
         }
         Text(
@@ -235,16 +231,4 @@ private fun PrivacyBlock(onTermsConditionsClick: () -> Unit, privacyPolicyOnClic
                     }
                 }
         })
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun TopBar() {
-    TopAppBar(
-        title = {
-            Text(
-                text = "SignUp", maxLines = 1, overflow = TextOverflow.Ellipsis
-            )
-        }, colors = TopAppBarDefaults.smallTopAppBarColors(Gray100)
-    )
 }

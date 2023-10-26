@@ -31,13 +31,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.khyzhun.kravatka.R
-import com.khyzhun.kravatka.core.components.TopBar
+import com.khyzhun.kravatka.core.components.TopBarApp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NotificationsScreen(onBackClick: () -> Unit) {
     Scaffold(topBar = {
-        TopBar(
+        TopBarApp(
             title = stringResource(id = R.string.notifications),
             onBackClick = onBackClick
         )

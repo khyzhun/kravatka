@@ -21,8 +21,6 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -40,12 +38,10 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.khyzhun.kravatka.R
-import com.khyzhun.kravatka.ui.theme.Gray100
 import com.khyzhun.kravatka.utils.appToastShow
 import com.khyzhun.kravatka.widgets.BackIconButton
 import com.khyzhun.kravatka.widgets.ButtonPrimary
@@ -62,7 +58,7 @@ fun SignInScreen(
     onLoginGoogleClick: () -> Unit,
     onRegisterClick: () -> Unit
 ) {
-    Scaffold(topBar = { TopBar() }) {
+    Scaffold {
         SignInScreenContent(
             viewModel = viewModel,
             onBackClick = onBackClick,
@@ -101,7 +97,7 @@ private fun SignInScreenContent(
                 contentDescription = null,
                 modifier = modifier
                     .fillMaxWidth()
-                    .height(150.dp)
+                    .height(300.dp)
             )
         }
         Text(
@@ -235,16 +231,4 @@ private fun SignInScreenContent(
             }
         }
     }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun TopBar() {
-    TopAppBar(
-        title = {
-            Text(
-                text = "SignIn", maxLines = 1, overflow = TextOverflow.Ellipsis
-            )
-        }, colors = TopAppBarDefaults.smallTopAppBarColors(Gray100)
-    )
 }

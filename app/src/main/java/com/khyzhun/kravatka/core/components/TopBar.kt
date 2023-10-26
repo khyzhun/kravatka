@@ -16,7 +16,7 @@ import com.khyzhun.kravatka.ui.theme.Gray100
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopBar(
+fun TopBarApp(
     title: String,
     onBackClick: () -> Unit = { },
     isEnableBackIcon:Boolean = true
