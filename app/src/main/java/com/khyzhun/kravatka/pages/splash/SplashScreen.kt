@@ -1,19 +1,24 @@
 package com.khyzhun.kravatka.pages.splash
 
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.khyzhun.kravatka.ui.theme.Gray100
+import com.khyzhun.kravatka.R
+import com.khyzhun.kravatka.core.components.ProgressIndicator
+import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -22,7 +27,6 @@ fun SplashScreen(
     onNavigationNext: () -> Unit
 ) {
     Scaffold(
-        topBar = { TopBar() },
         content = {
             SplashScreenContent(
                 modifier = Modifier.padding(it),
@@ -32,33 +36,36 @@ fun SplashScreen(
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-private fun TopBar() {
-    TopAppBar(
-        title = {
-            Text(
-                text = "Splash",
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis
-            )
-        },
-        colors = TopAppBarDefaults.smallTopAppBarColors(Gray100)
-    )
-}
-
 @Composable
 private fun SplashScreenContent(
     modifier: Modifier,
     onNavigationNext: () -> Unit
 ) {
-    Column(modifier = modifier.padding(16.dp)) {
-        Text(
-            text = "Go to Welcome Screen",
-            modifier = modifier.clickable {
-                onNavigationNext.invoke()
+    Column(
+        modifier = modifier
+            .padding(top = 100.dp)
+            .fillMaxSize(),
+    ) {
+        Column {
+            Image(
+                painter = painterResource(id = R.drawable.splash_logo),
+                contentDescription = null,
+                modifier = modifier
+                    .fillMaxWidth()
+                    .height(200.dp)
+            )
+            Row(
+                modifier = modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceAround
+            ) {
+                ProgressIndicator(modifier = Modifier.padding(top = 32.dp))
             }
-        )
+        }
+    }
+    LaunchedEffect(Unit) {
+        delay(2000)
+        onNavigationNext()
     }
 }
 
