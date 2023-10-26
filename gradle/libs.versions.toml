@@ -1,5 +1,6 @@
 [versions]
 namespace = "com.khyzhun.kravatka"
+foundation="1.4.0"
 accompanist = "0.28.0"
 annotation = "1.5.0"
 androidDesugarJdkLibs = "1.2.2"
@@ -56,7 +57,7 @@ room = "2.5.0-rc01"
 spotless = "5.12.5"
 timber = "5.0.1"
 # @keep
-targetSdk = "33"
+targetSdk = "34"
 truth = "1.1.2"
 turbine = "0.12.1"
 
@@ -66,6 +67,8 @@ accompanist-flowlayout = { group = "com.google.accompanist", name = "accompanist
 accompanist-swiperefresh = { group = "com.google.accompanist", name = "accompanist-swiperefresh", version.ref = "accompanist" }
 accompanist-systemuicontroller = { group = "com.google.accompanist", name = "accompanist-systemuicontroller", version.ref = "accompanist" }
 accompanist-testharness = { group = "com.google.accompanist", name = "accompanist-testharness", version.ref = "accompanist" }
+accompanist-pager = { group = "com.google.accompanist", name = "accompanist-pager" }
+accompanist-pager-indicators = { group = "com.google.accompanist", name = "accompanist-pager-indicators" }
 android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivity" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppCompat" }
@@ -74,7 +77,7 @@ androidx-annotation = { group = "androidx.annotation", name = "annotation", vers
 androidx-compose-animation = { group = "androidx.compose.animation", name = "animation" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidxComposeBom" }
 androidx-compose-compiler = { group = "androidx.compose.compiler", name = "compiler", version.ref = "androidxComposeCompiler" }
-androidx-compose-foundation-core = { group = "androidx.compose.foundation", name = "foundation" }
+androidx-compose-foundation-core = { group = "androidx.compose.foundation", name = "foundation", version.ref = "foundation"}
 androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout" }
 androidx-compose-material-core = { group = "androidx.compose.material", name = "material" }
 androidx-compose-material-iconsExtended = { group = "androidx.compose.material", name = "material-icons-extended" }
