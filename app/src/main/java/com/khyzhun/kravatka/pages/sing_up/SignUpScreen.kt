@@ -211,12 +211,16 @@ private fun PrivacyBlock(onTermsConditionsClick: () -> Unit, privacyPolicyOnClic
     val privacyPolicy = stringResource(id = R.string.privacy_policy)
     val annotatedString = buildAnnotatedString {
         append("${stringResource(id = R.string.register_agree_text)} ")
-        withStyle(style = SpanStyle(color = Color(0xFF0EA9F8))) {
+        withStyle(
+            style = SpanStyle(color = Color(0xFF0EA9F8))
+        ) {
             pushStringAnnotation(tag = tnc, annotation = tnc)
             append(tnc)
         }
         append(" ${stringResource(id = R.string.and_text).lowercase(Locale.ROOT)} ")
-        withStyle(style = SpanStyle(color = Color(0xFF0EA9F8))) {
+        withStyle(
+            style = SpanStyle(color = Color(0xFF0EA9F8))
+        ) {
             pushStringAnnotation(tag = privacyPolicy, annotation = privacyPolicy)
             append(privacyPolicy)
         }
@@ -224,7 +228,8 @@ private fun PrivacyBlock(onTermsConditionsClick: () -> Unit, privacyPolicyOnClic
     ClickableText(text = annotatedString, style = TextStyle(fontSize = 16.sp),
         onClick = { offset ->
             annotatedString.getStringAnnotations(offset, offset)
-                .firstOrNull()?.let { span ->
+                .firstOrNull()
+                ?.let { span ->
                     when {
                         tnc === span.item -> onTermsConditionsClick()
                         else -> privacyPolicyOnClick()

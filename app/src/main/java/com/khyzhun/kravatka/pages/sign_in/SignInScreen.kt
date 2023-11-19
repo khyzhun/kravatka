@@ -91,7 +91,6 @@ private fun SignInScreenContent(
 
         Box {
             BackIconButton(onClick = onBackClick)
-
             Image(
                 painter = painterResource(id = R.drawable.necktie_image),
                 contentDescription = null,
@@ -111,7 +110,10 @@ private fun SignInScreenContent(
             value = login,
             onValueChange = { login = it.trim() },
             label = {
-                Text(text = stringResource(R.string.email), fontWeight = FontWeight.Bold)
+                Text(
+                    text = stringResource(R.string.email),
+                    fontWeight = FontWeight.Bold
+                )
             },
             leadingIcon = {
                 Icon(
@@ -137,7 +139,10 @@ private fun SignInScreenContent(
             value = password,
             onValueChange = { password = it.trim() },
             label = {
-                Text(text = stringResource(R.string.password), fontWeight = FontWeight.Bold)
+                Text(
+                    text = stringResource(R.string.password),
+                    fontWeight = FontWeight.Bold
+                )
             },
             leadingIcon = {
                 Icon(
@@ -164,7 +169,10 @@ private fun SignInScreenContent(
             horizontalArrangement = Arrangement.End,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(0.dp, 8.dp)
+                .padding(
+                    horizontal = 0.dp,
+                    vertical = 8.dp
+                )
         ) {
             ClickableTextSecondary(
                 text = stringResource(id = R.string.forgot_password),
@@ -172,7 +180,7 @@ private fun SignInScreenContent(
             )
         }
         ButtonPrimary(text = stringResource(id = R.string.login)) {
-            if(viewModel.loginRequest(login, password)) {
+            if (viewModel.loginRequest(login, password)) {
                 onLoginClick()
             } else {
                 appToastShow(ctx.getString(R.string.login_or_password), ctx)
@@ -193,7 +201,10 @@ private fun SignInScreenContent(
             Text(
                 text = stringResource(id = R.string.or).uppercase(Locale.ROOT),
                 fontSize = 20.sp,
-                modifier = Modifier.padding(start = 10.dp, end = 10.dp),
+                modifier = Modifier.padding(
+                    start = 10.dp,
+                    end = 10.dp
+                ),
                 style = TextStyle(color = Color(0xFFB8B8B8))
             )
             Divider(
@@ -214,15 +225,20 @@ private fun SignInScreenContent(
                 val register = stringResource(id = R.string.register)
                 val annotatedString = buildAnnotatedString {
                     append("${stringResource(id = R.string.new_to)} ${stringResource(id = R.string.app_name)}? ")
-                    withStyle(style = SpanStyle(color = Color(0xFF0EA9F8))) {
+                    withStyle(
+                        style = SpanStyle(color = Color(0xFF0EA9F8))
+                    ) {
                         pushStringAnnotation(tag = register, annotation = register)
                         append(register)
                     }
                 }
-                ClickableText(text = annotatedString, style = TextStyle(fontSize = 16.sp),
+                ClickableText(
+                    text = annotatedString,
+                    style = TextStyle(fontSize = 16.sp),
                     onClick = { offset ->
                         annotatedString.getStringAnnotations(offset, offset)
-                            .firstOrNull()?.let { span ->
+                            .firstOrNull()
+                            ?.let { span ->
                                 when {
                                     register === span.item -> onRegisterClick()
                                 }

@@ -32,10 +32,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.khyzhun.kravatka.R
 import com.khyzhun.kravatka.core.components.TopBarApp
+import com.khyzhun.kravatka.pages.splash.SplashViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NotificationsScreen(onBackClick: () -> Unit) {
+fun NotificationsScreen(
+    viewModel: NotificationsViewModel,
+    onBackClick: () -> Unit
+) {
     Scaffold(topBar = {
         TopBarApp(
             title = stringResource(id = R.string.notifications),
@@ -43,23 +47,29 @@ fun NotificationsScreen(onBackClick: () -> Unit) {
         )
     }
     ) {
-        NotificationsScreenContent(modifier = Modifier.padding(it))
+        NotificationsScreenContent(
+            viewModel = viewModel,
+            modifier = Modifier.padding(it)
+        )
     }
 }
 
 @Composable
-fun NotificationsScreenContent(modifier: Modifier) {
+fun NotificationsScreenContent(
+    viewModel: NotificationsViewModel,
+    modifier: Modifier
+) {
     LazyColumn(
         modifier = modifier.fillMaxWidth(),
         contentPadding = PaddingValues(16.dp)
     ) {
-        itemsIndexed(listMessages) { index, item ->
+        itemsIndexed(viewModel.listMessages) { index, item ->
             NotificationsItem(
                 title = item.title,
                 message = item.message,
                 isNew = item.isNew
             )
-            if (index < listMessages.lastIndex) ItemDivider()
+            if (index < viewModel.listMessages.lastIndex) ItemDivider()
         }
     }
 }
@@ -133,31 +143,7 @@ private fun ItemDivider() {
 @Preview(showBackground = true)
 @Composable
 fun NotificationsScreenPreview() {
-    NotificationsScreen { TODO() }
+    NotificationsScreen(
+        viewModel = NotificationsViewModel()
+    ) { TODO() }
 }
-
-
-data class MockMessage(
-    val title: String,
-    val message: String,
-    val isNew: Boolean
-)
-
-val listMessages = listOf(
-    MockMessage(
-        "You got discount for this week",
-        "We have a good news. You got discount for this week for -10%",
-        isNew = false
-    ),
-    MockMessage(
-        "You got discount for this week",
-        "We have a good news. You got discount for this week for -10%",
-        isNew = true
-    ),
-
-    MockMessage(
-        "You got discount for this week",
-        "We have a good news. You got discount for this week for -10%",
-        isNew = false
-    )
-)
