@@ -23,4 +23,8 @@
     <string name="new_notifications">New notifications</string>
     <string name="next">Next</string>
     <string name="sign_in">SignIn</string>
+    <string name="label_feed">Feed</string>
+    <string name="label_favourites">Favoutires</string>
+    <string name="label_cart">Cart</string>
+    <string name="label_profile">Profile</string>
 </resources>

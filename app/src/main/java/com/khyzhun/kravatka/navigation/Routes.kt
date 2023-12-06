@@ -22,10 +22,81 @@ sealed class Routes(val route: String) {
      * Main Screens: first page
      */
     object Main : Routes ("main")
-    object Feed : Routes("main/feed")
-    object Favourites : Routes("main/favourites")
-    object Cart : Routes("main/cart")
-    object Profile : Routes("main/profile")
 
+    /**
+     * Main screen: first page
+     */
+    object Feed : Routes("feed")
+    object Search : Routes("feed/search")
+    object Product : Routes("feed/{$PRODUCT_ID}") {
+        fun getProductById(id: String): String {
+            return "feed/$id"
+        }
+    }
+
+    /**
+     * Main screen: second page
+     */
+    object Favourites : Routes("favourites")
+
+    /**
+     * Main screen: third page
+     */
+    object Cart : Routes("cart")
+    object Promo: Routes("card/promo")
+
+    /**
+     * Main screen: fourth page
+     */
+    object Profile : Routes("profile")
+    object Settings : Routes("profile/settings")
+    object Personal: Routes("profile/personal")
+    object Address: Routes("profile/address")
+    object Billing: Routes("profile/billing")
+
+    /**
+     * Nested Graphs
+     */
+    object FeedGraph : Routes("feed_graph")
+    object FavouritesGraph : Routes("favourites_graph")
+    object CartGraph : Routes("cart_graph")
+    object ProfileGraph : Routes("profile_graph")
+
+    /**
+     * Independent single screens
+     */
+    object Notifications : Routes("notifications")
+    object Confirmation : Routes("confirmation")
+    object Success : Routes("success")
+
+
+    companion object {
+        const val PRODUCT_ID = "product_id"
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
