@@ -25,7 +25,12 @@ import com.khyzhun.kravatka.navigation.NestedAppNavigation
 import com.khyzhun.kravatka.navigation.Routes
 
 @Composable
-fun MainScreen() {
+fun MainScreen(
+    onNavigateToProduct: (Long) -> Unit,
+    onNavigateToNotifications: () -> Unit,
+    onNavigateToConfirmation: () -> Unit,
+    onChangeFavourite: (Long) -> Unit
+) {
     val navController = rememberNavController()
     val navGraphs: List<Routes> = listOf(
         Routes.FeedGraph,
@@ -82,7 +87,10 @@ fun MainScreen() {
     ) {
         NestedAppNavigation(
             navController = navController,
-            startDestination = Routes.Feed.route,
+            onNavigateToProduct = onNavigateToProduct,
+            onNavigateToNotifications = onNavigateToNotifications,
+            onNavigateToConfirmation = onNavigateToConfirmation,
+            onChangeFavourite = onChangeFavourite,
             modifier = Modifier
                 .fillMaxSize()
                 .padding(bottom = it.calculateBottomPadding())

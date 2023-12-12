@@ -1,4 +1,4 @@
-package com.khyzhun.kravatka.pages.sign_in
+package com.khyzhun.kravatka.pages.signin
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

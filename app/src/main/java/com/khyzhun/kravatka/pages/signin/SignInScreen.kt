@@ -1,16 +1,17 @@
-package com.khyzhun.kravatka.pages.sign_in
+package com.khyzhun.kravatka.pages.signin
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
@@ -83,7 +84,9 @@ private fun SignInScreenContent(
     onRegisterClick: () -> Unit
 ) {
     Column(
-        modifier.padding(10.dp)
+        modifier = Modifier
+            .verticalScroll(rememberScrollState())
+            .padding(16.dp),
     ) {
         val ctx = LocalContext.current
         var login by remember { mutableStateOf("") }
@@ -214,14 +217,17 @@ private fun SignInScreenContent(
         }
         ButtonPrimary(stringResource(id = R.string.login_with_google), onLoginGoogleClick)
 
-        Column(
-            modifier = Modifier
-                .fillMaxHeight()
-                .fillMaxWidth(),
-            verticalArrangement = Arrangement.Bottom,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Row {
+//        Column(
+//            modifier = Modifier
+//                .fillMaxHeight()
+//                .fillMaxWidth(),
+//            verticalArrangement = Arrangement.Bottom,
+//            horizontalAlignment = Alignment.CenterHorizontally
+//        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center,
+            ) {
                 val register = stringResource(id = R.string.register)
                 val annotatedString = buildAnnotatedString {
                     append("${stringResource(id = R.string.new_to)} ${stringResource(id = R.string.app_name)}? ")
@@ -245,6 +251,6 @@ private fun SignInScreenContent(
                             }
                     })
             }
-        }
+//        }
     }
 }

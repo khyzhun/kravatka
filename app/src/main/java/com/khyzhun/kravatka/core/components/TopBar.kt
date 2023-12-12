@@ -12,14 +12,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import com.khyzhun.kravatka.R
-import com.khyzhun.kravatka.ui.theme.Gray100
+import com.khyzhun.kravatka.core.theme.md_theme_light_primaryContainer
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopBarApp(
     title: String,
     onBackClick: () -> Unit = { },
-    isEnableBackIcon:Boolean = true
+    isEnableBackIcon: Boolean = true
 ) {
     TopAppBar(
         title = {
@@ -27,9 +27,9 @@ fun TopBarApp(
                 text = title, maxLines = 1, overflow = TextOverflow.Ellipsis
             )
         },
-        colors = TopAppBarDefaults.smallTopAppBarColors(Gray100),
+        colors = TopAppBarDefaults.smallTopAppBarColors(md_theme_light_primaryContainer),
         navigationIcon = {
-            if(isEnableBackIcon){
+            if (isEnableBackIcon) {
                 IconButton(onClick = onBackClick) {
                     Icon(
                         Icons.Filled.ArrowBack,

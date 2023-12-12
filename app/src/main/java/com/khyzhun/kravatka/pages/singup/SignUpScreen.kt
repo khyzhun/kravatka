@@ -1,4 +1,4 @@
-package com.khyzhun.kravatka.pages.sing_up
+package com.khyzhun.kravatka.pages.singup
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -50,16 +50,16 @@ fun SignUpScreen(
     viewModel: SignUpViewModel,
     onBackClick: () -> Unit,
     onNextClick: () -> Unit,
-    onTermsConditionsClick: () -> Unit,
-    privacyPolicyOnClick: () -> Unit
+    onTermsClick: () -> Unit,
+    onPrivacyClick: () -> Unit
 ) {
     Scaffold {
         SignUpScreenContent(
             viewModel = viewModel,
             onBackClick = onBackClick,
             onNextClick = onNextClick,
-            onTermsConditionsClick = onTermsConditionsClick,
-            privacyPolicyOnClick = privacyPolicyOnClick,
+            onTermsClick = onTermsClick,
+            onPrivacyClick = onPrivacyClick,
             modifier = Modifier.padding(it)
         )
     }
@@ -71,8 +71,8 @@ private fun SignUpScreenContent(
     viewModel: SignUpViewModel,
     onBackClick: () -> Unit,
     onNextClick: () -> Unit,
-    onTermsConditionsClick: () -> Unit,
-    privacyPolicyOnClick: () -> Unit,
+    onTermsClick: () -> Unit,
+    onPrivacyClick: () -> Unit,
     modifier: Modifier
 ) {
     var login by remember { mutableStateOf("") }
@@ -189,7 +189,7 @@ private fun SignUpScreenContent(
                 .fillMaxWidth()
                 .padding(top = 8.dp, bottom = 12.dp)
         )
-        PrivacyBlock(onTermsConditionsClick, privacyPolicyOnClick)
+        PrivacyBlock(onTermsClick, onPrivacyClick)
         Row(
             verticalAlignment = Alignment.Bottom,
             modifier = modifier

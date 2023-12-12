@@ -43,7 +43,6 @@ sealed class Routes(val route: String) {
      * Main screen: third page
      */
     object Cart : Routes("cart")
-    object Promo: Routes("card/promo")
 
     /**
      * Main screen: fourth page

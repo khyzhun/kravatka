@@ -1,4 +1,4 @@
-package com.khyzhun.kravatka.pages.sing_up
+package com.khyzhun.kravatka.pages.singup
 
 import androidx.lifecycle.ViewModel
 import javax.inject.Inject
