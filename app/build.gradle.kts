@@ -131,6 +131,9 @@ dependencies {
     implementation(libs.accompanist.appcompat.theme)
     implementation(libs.accompanist.swiperefresh)
 
+    implementation(libs.coil.kt)
+    implementation(libs.coil.kt.compose)
+
     debugImplementation(composeBom)
     debugImplementation(libs.androidx.compose.ui.tooling.core)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
