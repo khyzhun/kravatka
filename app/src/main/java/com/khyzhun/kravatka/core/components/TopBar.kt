@@ -24,7 +24,9 @@ fun TopBarApp(
     TopAppBar(
         title = {
             Text(
-                text = title, maxLines = 1, overflow = TextOverflow.Ellipsis
+                text = title,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
             )
         },
         colors = TopAppBarDefaults.smallTopAppBarColors(md_theme_light_primaryContainer),
