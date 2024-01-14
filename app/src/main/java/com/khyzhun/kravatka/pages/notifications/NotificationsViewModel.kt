@@ -8,7 +8,7 @@ import com.khyzhun.kravatka.core.base.common.events.UiEvent
 import com.khyzhun.kravatka.utils.MockUtils
 
 class NotificationsViewModel(
-    val interactor: NotificationsInteractor
+    //val interactor: NotificationsInteractor TBD.
 ) : BaseViewModel<NotificationsUiState, Progress, Dialog, Callback>() {
 
     override fun handleUiEvent(uiEvent: UiEvent) {
