@@ -14,6 +14,7 @@
     <string name="register">Register</string>
     <string name="continue_text">Continue</string>
     <string name="back_button">Back button</string>
+    <string name="menu_button">Menu button</string>
     <string name="register_agree_text">By signing up, you\'re agree to our</string>
     <string name="terms_conditions">Terms &amp; Conditions</string>
     <string name="privacy_policy">Privacy policy</string>

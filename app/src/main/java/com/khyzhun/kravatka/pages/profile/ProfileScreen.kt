@@ -26,7 +26,6 @@ fun ProfileScreen(
         topBar = {
             TopBarApp(
                 title = "Profile",
-                isEnableBackIcon = false
             )
         },
         content = {

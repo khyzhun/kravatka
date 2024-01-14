@@ -8,7 +8,7 @@ import com.khyzhun.kravatka.core.base.common.events.UiEvent
 import com.khyzhun.kravatka.utils.MockUtils
 
 class NotificationsViewModel(
-    //val interactor: NotificationsInteractor //TODO("finish up.")
+    val interactor: NotificationsInteractor
 ) : BaseViewModel<NotificationsUiState, Progress, Dialog, Callback>() {
 
     override fun handleUiEvent(uiEvent: UiEvent) {
@@ -16,8 +16,12 @@ class NotificationsViewModel(
             is NotificationsUiEvent.LoadScreenData -> {
                 loadNotifications()
             }
-            is NotificationsUiEvent.OnMarkAllAsReadClick -> {}
-            is NotificationsUiEvent.OnMarkAsReadClick -> {}
+            is NotificationsUiEvent.OnMarkAsReadClick -> {
+                markAsRead(uiEvent.id)
+            }
+            is NotificationsUiEvent.OnMarkAllAsReadClick -> {
+                markAllAsRead()
+            }
         }
     }
 
@@ -27,6 +31,33 @@ class NotificationsViewModel(
             currentState.value = NotificationsUiState(notifications = notifications)
         }
     }
+
+    private fun markAsRead(id: Long) {
+        updateState { mutableState ->
+            mutableState.value?.let { state ->
+                val notifications = state.notifications.toMutableList()
+                notifications.mapIndexed { index, notification ->
+                    if (notification.id == id) {
+                        notifications[index] = notification.copy(isNew = false)
+                    }
+                }
+                mutableState.value = state.copy(notifications = notifications)
+            }
+        }
+    }
+
+    private fun markAllAsRead() {
+        updateState { mutableState ->
+            mutableState.value?.let { state ->
+                val notifications = state.notifications.toMutableList()
+                notifications.mapIndexed { index, notification ->
+                    notifications[index] = notification.copy(isNew = false)
+                }
+                mutableState.value = state.copy(notifications = notifications)
+            }
+        }
+    }
+
 
 }
 

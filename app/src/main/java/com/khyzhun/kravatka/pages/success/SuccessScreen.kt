@@ -23,7 +23,6 @@ fun SuccessScreen(
         topBar = {
             TopBarApp(
                 title = "Success",
-                isEnableBackIcon = false
             )
         },
         content = {
