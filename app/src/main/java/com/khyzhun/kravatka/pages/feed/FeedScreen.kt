@@ -25,7 +25,6 @@ fun FeedScreen(
         topBar = {
             TopBarApp(
                 title = "Feed",
-                isEnableBackIcon = false
             )
         },
         content = {
