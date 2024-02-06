@@ -35,11 +35,9 @@ class NotificationsViewModel(
     private fun markAsRead(id: Long) {
         updateState { mutableState ->
             mutableState.value?.let { state ->
-                val notifications = state.notifications.toMutableList()
-                notifications.mapIndexed { index, notification ->
-                    if (notification.id == id) {
-                        notifications[index] = notification.copy(isNew = false)
-                    }
+                val notifications = state.notifications.map { notification ->
+                    if (notification.id == id) notification.copy(isNew = false)
+                    else notification
                 }
                 mutableState.value = state.copy(notifications = notifications)
             }
@@ -49,11 +47,9 @@ class NotificationsViewModel(
     private fun markAllAsRead() {
         updateState { mutableState ->
             mutableState.value?.let { state ->
-                val notifications = state.notifications.toMutableList()
-                notifications.mapIndexed { index, notification ->
-                    notifications[index] = notification.copy(isNew = false)
-                }
-                mutableState.value = state.copy(notifications = notifications)
+                mutableState.value = state.copy(notifications = state.notifications.map {
+                    it.copy(isNew = false)
+                })
             }
         }
     }
