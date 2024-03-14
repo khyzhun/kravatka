@@ -58,17 +58,6 @@ fun MainScreen(
                                 contentDescription = null
                             )
                         },
-                        label = {
-                            Text(
-                                stringResource(id = when (graph) {
-                                    Routes.FeedGraph -> R.string.label_feed
-                                    Routes.FavouritesGraph -> R.string.label_favourites
-                                    Routes.CartGraph -> R.string.label_cart
-                                    Routes.ProfileGraph -> R.string.label_profile
-                                    else -> -1 // just for example.
-                                })
-                            )
-                        },
                         selected = currentDestination?.hierarchy
                             ?.any { it.route == graph.route } == true,
                         onClick = {

@@ -51,12 +51,16 @@ fun NotificationsScreen(
             NotificationsUiEvent.LoadScreenData
         )
     }
-    BaseContentLayout(viewModel = viewModel) { uiState ->
+
+    BaseContentLayout(
+        viewModel = viewModel,
+        onBackPressed = onBackClick,
+    ) { uiState ->
         uiState?.let {
             NotificationsScreenContent(
                 notifications = it.notifications,
-                onBackClick = onBackClick,
-                uiEvent = viewModel::handleUiEvent
+                uiEvent = viewModel::handleUiEvent,
+                onBackClick = onBackClick
             )
         }
     }
@@ -65,8 +69,8 @@ fun NotificationsScreen(
 @Composable
 private fun NotificationsScreenContent(
     notifications: List<Notification>,
-    onBackClick: () -> Unit,
-    uiEvent: (NotificationsUiEvent) -> Unit
+    uiEvent: (NotificationsUiEvent) -> Unit,
+    onBackClick: () -> Unit
 ) {
     Column(modifier = Modifier.fillMaxSize()) {
         TopBarApp(
@@ -166,7 +170,7 @@ private fun NotificationCard(
 private fun NotificationsScreenContentPreview() {
     NotificationsScreenContent(
         notifications = MockUtils.loadMockNotifications(),
-        onBackClick = {},
         uiEvent = {},
+        onBackClick = { },
     )
 }

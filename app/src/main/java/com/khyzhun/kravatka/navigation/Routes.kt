@@ -5,30 +5,30 @@ sealed class Routes(val route: String) {
     /**
      * Entry point
      */
-    object Splash : Routes("splash")
+    data object Splash : Routes("splash")
 
     /**
      * Welcome screen for new users
      */
-    object Welcome : Routes("welcome")
+    data object Welcome : Routes("welcome")
 
     /**
      * Authentication
      */
-    object SignIn : Routes("sign_in")
-    object SignUp : Routes("sign_up")
+    data object SignIn : Routes("sign_in")
+    data object SignUp : Routes("sign_up")
 
     /**
      * Main Screens: first page
      */
-    object Main : Routes ("main")
+    data object Main : Routes ("main")
 
     /**
      * Main screen: first page
      */
-    object Feed : Routes("feed")
-    object Search : Routes("feed/search")
-    object Product : Routes("feed/{$PRODUCT_ID}") {
+    data object Feed : Routes("feed")
+    data object Search : Routes("feed/search")
+    data object Product : Routes("feed/{$PRODUCT_ID}") {
         fun getProductById(id: String): String {
             return "feed/$id"
         }
@@ -37,36 +37,36 @@ sealed class Routes(val route: String) {
     /**
      * Main screen: second page
      */
-    object Favourites : Routes("favourites")
+    data object Favourites : Routes("favourites")
 
     /**
      * Main screen: third page
      */
-    object Cart : Routes("cart")
+    data object Cart : Routes("cart")
 
     /**
      * Main screen: fourth page
      */
-    object Profile : Routes("profile")
-    object Settings : Routes("profile/settings")
-    object Personal: Routes("profile/personal")
-    object Address: Routes("profile/address")
-    object Billing: Routes("profile/billing")
+    data object Profile : Routes("profile")
+    data object Settings : Routes("profile/settings")
+    data object Personal: Routes("profile/personal")
+    data object Address: Routes("profile/address")
+    data object Billing: Routes("profile/billing")
 
     /**
      * Nested Graphs
      */
-    object FeedGraph : Routes("feed_graph")
-    object FavouritesGraph : Routes("favourites_graph")
-    object CartGraph : Routes("cart_graph")
-    object ProfileGraph : Routes("profile_graph")
+    data object FeedGraph : Routes("feed_graph")
+    data object FavouritesGraph : Routes("favourites_graph")
+    data object CartGraph : Routes("cart_graph")
+    data object ProfileGraph : Routes("profile_graph")
 
     /**
      * Independent single screens
      */
-    object Notifications : Routes("notifications")
-    object Confirmation : Routes("confirmation")
-    object Success : Routes("success")
+    data object Notifications : Routes("notifications")
+    data object Confirmation : Routes("confirmation")
+    data object Success : Routes("success")
 
 
     companion object {
