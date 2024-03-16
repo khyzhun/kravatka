@@ -128,7 +128,6 @@ private fun SignInScreenContent(
                 focusedBorderColor = Color(0xFFB8B8B8),
                 unfocusedBorderColor = Color(0xFFF6F6F6),
                 containerColor = Color(0xFFF6F6F6),
-                textColor = Color(0xFF9D9D9D),
                 focusedLabelColor = Color(0xFF222222)
             ),
             singleLine = true,
@@ -157,7 +156,7 @@ private fun SignInScreenContent(
                 focusedBorderColor = Color(0xFFB8B8B8),
                 unfocusedBorderColor = Color(0xFFF6F6F6),
                 containerColor = Color(0xFFF6F6F6),
-                textColor = Color(0xFF9D9D9D),
+//                textColor = Color(0xFF9D9D9D),
                 focusedLabelColor = Color(0xFF222222)
             ),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),

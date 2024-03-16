@@ -82,10 +82,11 @@ private fun WelcomeScreenContent(
             .padding(16.dp)
     ) {
         val pageCount = 5
-        val pagerState = rememberPagerState(initialPage = 0)
+        val pagerState = rememberPagerState(initialPage = 0) {
+            pageCount
+        }
         HorizontalPager(
             modifier = modifier.border(1.dp, Color.Black),
-            pageCount = pageCount,
             state = pagerState
         ) {
             Box(modifier.fillMaxSize()) {
