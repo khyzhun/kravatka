@@ -26,18 +26,20 @@ import com.khyzhun.kravatka.core.theme.md_theme_light_primaryContainer
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopBarApp(
-    title: String,
+    title: String? = null,
     onBackClick: (() -> Unit)? = null,
     menuIcon: ImageVector? = null,
     onMenuClick: () -> Unit = {}
 ) {
     TopAppBar(
         title = {
-            Text(
-                text = title,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis
-            )
+            title?.let { text ->
+                Text(
+                    text = text,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
+            }
         },
         colors = TopAppBarDefaults.smallTopAppBarColors(md_theme_light_primaryContainer),
         navigationIcon = {
@@ -80,13 +82,24 @@ fun TopBarAsText(title: String) {
 
 @Preview(showBackground = true)
 @Composable
-fun TopBarAsTextPreview() {
+private fun TopBarAsTextPreview() {
     TopBarAsText(title = "TopBar as text")
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun TopBarWithBackButtonOnlyPreview() {
+    TopBarApp(
+        title = null,
+        onBackClick = {},
+        menuIcon = null,
+        onMenuClick = {}
+    )
 }
 
 @Preview
 @Composable
-fun TopBarWithTitleOnlyPreview() {
+private fun TopBarWithTitleOnlyPreview() {
     TopBarApp(
         title = "TopBar with title only",
         onBackClick = null,
@@ -97,7 +110,7 @@ fun TopBarWithTitleOnlyPreview() {
 
 @Preview
 @Composable
-fun TopBarWithTitleAndBackButtonPreview() {
+private fun TopBarWithTitleAndBackButtonPreview() {
     TopBarApp(
         title = "TopBar with title and back button",
         onBackClick = {},
@@ -108,7 +121,7 @@ fun TopBarWithTitleAndBackButtonPreview() {
 
 @Preview
 @Composable
-fun TopBarWithTitleAndMenuPreview() {
+private fun TopBarWithTitleAndMenuPreview() {
     TopBarApp(
         title = "TopBar with title and menu",
         onBackClick = null,
@@ -119,7 +132,7 @@ fun TopBarWithTitleAndMenuPreview() {
 
 @Preview
 @Composable
-fun TopBarWithTitleAndBackButtonAndMenuPreview() {
+private fun TopBarWithTitleAndBackButtonAndMenuPreview() {
     TopBarApp(
         title = "TopBar with title, back button, and menu",
         onBackClick = {},

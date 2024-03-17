@@ -7,6 +7,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.khyzhun.kravatka.pages.cart.CartScreen
+import com.khyzhun.kravatka.pages.cart.CartViewModel
 import com.khyzhun.kravatka.pages.confirm.ConfirmScreen
 import com.khyzhun.kravatka.pages.confirm.ConfirmViewModel
 import com.khyzhun.kravatka.pages.main.MainScreen
@@ -120,7 +122,7 @@ fun RootAppNavigation(
         composable(Routes.Main.route) {
             MainScreen(
                 onNavigateToProduct = {
-                    navController.navigate(route = Routes.Product.getProductById("null"))
+                    navController.navigate(route = Routes.Product.getProductById(it))
                 },
                 onNavigateToNotifications = {
                     navController.navigate(route = Routes.Notifications.route)
@@ -136,11 +138,25 @@ fun RootAppNavigation(
 
         composable(Routes.Product.route) {
             val viewModel = hiltViewModel<ProductViewModel>()
+            val id = it.arguments?.getString(Routes.PRODUCT_ID)?.toLong() ?: -1L
             ProductScreen(
                 viewModel = viewModel,
+                id = id,
                 onBackClick = {
                     navController.popBackStack()
+                },
+                onBuyNowClick = {
+                    navController.navigate(Routes.Cart.route)
                 }
+            )
+        }
+
+        composable(Routes.Cart.route) {
+            val viewModel = hiltViewModel<CartViewModel>()
+            CartScreen(
+                viewModel = viewModel,
+                onNavigateToConfirm = { /*TODO*/ },
+                onNavigateToProduct = { }
             )
         }
 

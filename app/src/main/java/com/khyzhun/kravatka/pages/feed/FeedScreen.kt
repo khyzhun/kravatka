@@ -100,7 +100,7 @@ private fun FeedScreenContent(
 }
 
 @Composable
-fun ProductItem(
+private fun ProductItem(
     product: Product,
     onNavigateToProduct: (Long) -> Unit
 ) {
@@ -129,7 +129,7 @@ fun ProductItem(
 }
 
 @Composable
-fun BackgroundImage(imageUrl: String) {
+private fun BackgroundImage(imageUrl: String) {
     Image(
         alignment = Alignment.Center,
         painter = rememberAsyncImagePainter(model = imageUrl),

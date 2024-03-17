@@ -29,6 +29,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -36,11 +37,12 @@ fun PrimaryButton(
     modifier: Modifier = Modifier,
     text: String,
     isEnabled: Boolean = true,
+    roundDp: Dp = 8.dp,
     onClick: () -> Unit
 ) {
     Box(modifier = modifier) {
         Button(
-            shape = RoundedCornerShape(8.dp),
+            shape = RoundedCornerShape(roundDp),
             onClick = onClick,
             enabled = isEnabled,
             modifier = Modifier
@@ -81,7 +83,7 @@ fun SecondaryButton(
 }
 
 @Composable
-fun CircleButton(
+fun FloatingButton(
     modifier: Modifier = Modifier,
     icon: @Composable () -> Unit,
     elevation: FloatingActionButtonElevation = FloatingActionButtonDefaults.elevation(),
@@ -98,16 +100,17 @@ fun CircleButton(
 }
 
 @Composable
-fun SquareButton(
+fun RoundedButton(
     modifier: Modifier = Modifier,
     icon: @Composable () -> Unit,
-    isEnabled: Boolean,
+    isEnabled: Boolean = true,
+    roundDp: Dp = 16.dp,
     elevation: ButtonElevation = ButtonDefaults.buttonElevation(),
     onClick: () -> Unit
 ) {
     Box(modifier = modifier) {
         Button(
-            shape = RoundedCornerShape(16.dp),
+            shape = RoundedCornerShape(roundDp),
             enabled = isEnabled,
             elevation = elevation,
             contentPadding = PaddingValues(4.dp),
@@ -179,7 +182,7 @@ fun ButtonsPreview() {
             onClick = {}
         )
 
-        CircleButton(
+        FloatingButton(
             icon = {
                 Icon(
                     imageVector = Icons.Filled.Add,
@@ -190,7 +193,7 @@ fun ButtonsPreview() {
             onClick = {}
         )
 
-        SquareButton(
+        RoundedButton(
             icon = {
                 Icon(
                     imageVector = Icons.Filled.Notifications,
