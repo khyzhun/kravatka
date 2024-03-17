@@ -196,7 +196,7 @@ object MockUtils {
             ProductDetails(
                 id = 4,
                 title = "Product 4",
-                description = LoremIpsum(500).toString(),
+                description = LOREM_IPSUM_SOURCE,
                 category = "Hooded jacket",
                 price = 74.42,
                 imageUrls = listOf(
@@ -209,7 +209,7 @@ object MockUtils {
             ProductDetails(
                 id = 5,
                 title = "Product 5",
-                description = LoremIpsum(500).toString(),
+                description = LOREM_IPSUM_SOURCE,
                 category = "Hooded jacket",
                 price = 95.21,
                 imageUrls = listOf(
@@ -222,7 +222,7 @@ object MockUtils {
             ProductDetails(
                 id = 6,
                 title = "Product 6",
-                description = LoremIpsum(500).toString(),
+                description = LOREM_IPSUM_SOURCE,
                 category = "Hooded jacket",
                 price = 11.11,
                 imageUrls = listOf(
@@ -235,7 +235,7 @@ object MockUtils {
             ProductDetails(
                 id = 7,
                 title = "Product 7",
-                description = LoremIpsum(500).toString(),
+                description = LOREM_IPSUM_SOURCE,
                 category = "Hooded jacket",
                 price = 22.22,
                 imageUrls = listOf(
@@ -248,7 +248,7 @@ object MockUtils {
             ProductDetails(
                 id = 8,
                 title = "Product 8",
-                description = LoremIpsum(500).toString(),
+                description = LOREM_IPSUM_SOURCE,
                 category = "Hooded jacket",
                 price = 33.33,
                 imageUrls = listOf(
@@ -261,7 +261,7 @@ object MockUtils {
             ProductDetails(
                 id = 9,
                 title = "Product 9",
-                description = LoremIpsum(500).toString(),
+                description = LOREM_IPSUM_SOURCE,
                 category = "Hooded jacket",
                 price = 44.44,
                 imageUrls = listOf(
@@ -274,7 +274,7 @@ object MockUtils {
             ProductDetails(
                 id = 10,
                 title = "Product 10",
-                description = LoremIpsum(500).toString(),
+                description = LOREM_IPSUM_SOURCE,
                 category = "Hooded jacket",
                 price = 55.55,
                 imageUrls = listOf(

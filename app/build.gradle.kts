@@ -131,6 +131,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtimeCompose)
     implementation(libs.androidx.lifecycle.viewModelCompose)
     implementation(libs.accompanist.appcompat.theme)
+    implementation(libs.pager.indicator)
 
     implementation(libs.coil.kt)
     implementation(libs.coil.kt.compose)
